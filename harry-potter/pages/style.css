@@ -1,0 +1,17 @@
+html, body {
+    background: url('../public/images/bg-home.png'),#041b29;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 50px;
+    width: 1349px;
+}
+
+main, section {
+    padding: 0 4rem;
+}
+
+li, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
