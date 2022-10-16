@@ -13,7 +13,7 @@
 
 .divHeader_divImg {
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10px 0;
   width: fit-content;
 }
 
@@ -71,15 +71,15 @@
   margin: 0 2.59rem 0 1rem;
 }
 
-.divSection_title {
+.divSection_title__home {
   font-weight: initial;
   font-size: 1.6rem;
   color: #A6955A;
 }
 
-.divSection_titleLine {
+.divSection_titleLine__home {
   margin: 46px 0;
-  width: 69.9%;
+  width: 70%;
   border-top: 2px solid #A6955A;
 }
 

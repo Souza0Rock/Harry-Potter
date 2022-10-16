@@ -5,13 +5,14 @@ import Footer from '../components/Footer'
 import styles from '../styles/Home/Home.module.css'
 
 const logoHeader = false
+const home = true
 
 export default function Home() {
     return (
       <div className={styles.divBody}>
         <Header logoHeader={logoHeader} />
         <MainHome />
-        <Section textSection={'Navegue pelas Casas'} />
+        <Section textSection={'Navegue pelas Casas'} home={home} />
         <Footer />
       </div>
     )

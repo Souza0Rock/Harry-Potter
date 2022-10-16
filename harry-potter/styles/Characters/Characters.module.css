@@ -1,11 +1,25 @@
 .divBody {
-    height: 1172px;
+    height: 1162px;
     background-image: url(../../public/images/background_harry_azul_marinho\ 1.png),
     url(../../public/images/background_harry_azul_marinho\ 2.png),
     url(../../public/images/background_harry_azul_marinho\ 3.png),
     url(../../public/images/background_harry_azul_marinho\ 4.png);
 
-    background-position: 0px 116px, 832px 116px, bottom left, bottom right;
+    background-position: 0px 106px, 832px 106px, bottom left, bottom right;
     background-size: 832px 528px, 517px 528px;
     background-repeat: no-repeat;
+}
+
+
+.divSection_title__characters {
+    font-weight: initial;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #A6955A;
+}
+
+.divSection_titleLine__characters {
+    margin: 46px 0;
+    width: 80.2%;
+    border-top: 2px solid #A6955A;
 }
