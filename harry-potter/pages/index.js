@@ -1,15 +1,18 @@
-import Main from '../components/Main'
 import Header from '../components/Header'
+import MainHome from '../components/MainHome'
 import Section from '../components/Section'
+import Footer from '../components/Footer'
+import styles from '../styles/Home/Home.module.css'
 
-const header = false
+const logoHeader = false
 
 export default function Home() {
     return (
-      <div>
-        <Header header={header}/>
-        <Main />
-        <Section />
+      <div className={styles.divBody}>
+        <Header logoHeader={logoHeader} />
+        <MainHome />
+        <Section textSection={'Navegue pelas Casas'} />
+        <Footer />
       </div>
     )
 }

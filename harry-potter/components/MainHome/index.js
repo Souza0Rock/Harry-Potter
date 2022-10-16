@@ -1,7 +1,8 @@
 import React from "react";
-import styles from '../../styles/Home.module.css'
+import Router from "next/router";
+import styles from '../../styles/Home/Home.module.css'
 
-export default function Main () {
+export default function MainHome () {
     return (
         <main>
             <div className={styles.divMain}>
@@ -9,7 +10,7 @@ export default function Main () {
                     <img alt="logo Harry Potter" src='/images/logo-home.png' />
                 </article>
                 <div className={styles.divButton}>
-                    <button className={styles.button}><a><p className={styles.buttonP}>veja todos<br />os personagens</p></a></button>
+                    <button type="button" onClick={() => Router.push('/Characters')} className={styles.button}><p className={styles.buttonP}>veja todos<br />os personagens</p></button>
                 </div>
             </div>
         </main>

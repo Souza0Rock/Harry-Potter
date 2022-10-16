@@ -1,11 +1,12 @@
 import React from "react";
-import styles from '../../styles/Home.module.css'
+import Router from "next/router";
+import styles from '../../styles/Home/Home.module.css'
 
-export default function Header ({header}) {
+export default function Header ({logoHeader}) {
     return (
         <header>
             <div className={styles.divHeader}>
-                {header && (<div className={styles.divHeader_divImg}><img alt="header logo" src='/images/logo-harry-potter.png' /></div>)}
+                {logoHeader && (<div className={styles.divHeader_divImg} onClick={() => Router.push('../')}><img alt="header logo" src='/images/logo-harry-potter.png' className={styles.divHeader_img} /></div>)}
             </div>
         </header>
     )
