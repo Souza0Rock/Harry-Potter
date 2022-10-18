@@ -1,7 +1,7 @@
 import Header from '../../components/Header'
 import Section from '../../components/Section'
-import MainCharacters from '../../components/MainCharacters'
 import styles from '../../styles/Characters/Characters.module.css'
+import MainCharacters from '../../components/MainCharacters'
 
 export default function Characters () {
 
