@@ -7,14 +7,16 @@ Modal.setAppElement("#__next");
 
 export default function MainCharacters (characters) {
 
-    const [open, isOpen] = useState(false);
+    const [open, setIsOpen] = useState(false);
     const [itemSelecionado, setItemSelecionado] = useState(null);
     const [items, setItems] = useState([]);
     
     const onItemClicked = (item) => {
         setItemSelecionado(item);
-        isOpen(true);
+        setIsOpen(true);
     }
+
+    console.log(items);
 
     const baseURL = "https://hp-api.herokuapp.com/api/characters"
     const [resposta, setResposta] = useState()
@@ -29,29 +31,40 @@ export default function MainCharacters (characters) {
         <main>
             <ul className={styles.ulCards}>
                 <div className={styles.container}>
-                    {resposta &&
-                    resposta.map((characters ,index)=>{
-                        return(
-                            <li className={styles.ulCards_li}>
+                {resposta &&
+                    resposta.map((characters, index) => {
+                        return (
+                            <li key={index} className={styles.ulCards_li}>
                                 <div key={index}>
-                                    <div className={styles.divImageCard} onClick={onItemClicked}><img alt={characters.name} src={characters.image} width='180px' height='244px'></img></div>
-                                    <div className={styles.divCharactersName} onClick={onItemClicked}><h3 className={styles.charactersName}>{characters.name}</h3></div>
-                                    <Modal isOpen={open}>
-                                        <p>{characters.name}</p>
-                                    </Modal>
+                                    <div className={styles.divImageCard} onClick={() => onItemClicked(characters)}>
+                                        <img
+                                        alt={characters.name}
+                                        src={characters.image}
+                                        width="180px"
+                                        height="244px"
+                                        />
+                                    </div>
+                                    <div
+                                        className={styles.divCharactersName}
+                                        onClick={() => onItemClicked(characters)}
+                                    >
+                                        <h3 className={styles.charactersName}>{characters.name}</h3>
+                                    </div>
                                     {items.map((item, index) => (
-                                        <li key={'item-${index}'} onClick={() => onItemClicked(item)}>
-                                            {item.name}
+                                        <li key="item-${index}" onClick={() => onItemClicked(item)}>
+                                        {item.name}
                                         </li>
                                     ))}
-                                
-
                                 </div>
                             </li>
-                        )           
+                        );
                     })}
                 </div>
             </ul>
+            <Modal isOpen={open}>
+                <p onClick={() => setIsOpen(false)}>x</p>
+                <p>{itemSelecionado == null? 'vla' : itemSelecionado.name}</p>
+            </Modal>
         </main>
     )
 }
