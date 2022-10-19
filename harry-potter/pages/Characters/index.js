@@ -10,9 +10,11 @@ export default function Characters () {
 
     return (
         <div className={styles.divBody}>
-            <Header logoHeader={logoHeader} />
-            <Section textSection={'personagens'} characters={characters} />
-            <MainCharacters />
+            <div className={styles.containerBody}>
+                <Header logoHeader={logoHeader} />
+                <Section textSection={'personagens'} characters={characters} />
+                <MainCharacters />
+            </div>
         </div>
     )
 }

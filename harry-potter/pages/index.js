@@ -10,10 +10,12 @@ const home = true
 export default function Home() {
     return (
       <div className={styles.divBody}>
-        <Header logoHeader={logoHeader} />
-        <MainHome />
-        <Section textSection={'Navegue pelas Casas'} home={home} />
-        <Footer />
+        <div className={styles.containerBody}>
+          <Header logoHeader={logoHeader} />
+          <MainHome />
+          <Section textSection={'Navegue pelas Casas'} home={home} />
+          <Footer />
+        </div>
       </div>
     )
 }

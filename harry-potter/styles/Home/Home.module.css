@@ -1,5 +1,11 @@
 .divBody {
-  background: url('../../public/images/bg-home.png'),#041b29;
+  background-color: #031C29;
+}
+
+.containerBody {
+  width: 1349px;
+  margin: auto;
+  background: url('../../public/images/bg-home.png');
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: 50px;
@@ -67,8 +73,8 @@
   display: flex;
 }
 
-.divSection_divTitle {
-  margin: 0 2.59rem 0 1rem;
+.divSection_divTitle__home {
+  margin: 25px 2.59rem 0 1rem;
 }
 
 .divSection_title__home {

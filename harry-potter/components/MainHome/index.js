@@ -1,14 +1,17 @@
 import React from "react";
 import Router from "next/router";
+import { useState } from "react";
+import Modal from "react-modal";
 import styles from '../../styles/Home/Home.module.css'
 
 export default function MainHome () {
+
     return (
         <main>
             <div className={styles.divMain}>
-                <article>
+                <article >
                     <img alt="logo Harry Potter" src='/images/logo-home.png' />
-                </article>
+                </article>              
                 <div className={styles.divButton}>
                     <button type="button" onClick={() => Router.push('/Characters')} className={styles.button}><p className={styles.buttonP}>veja todos<br />os personagens</p></button>
                 </div>

@@ -1,11 +1,21 @@
 .divBody {
+    background-color: #0e1d28;
+}
+
+.containerBody {
+    width: 1349px;
+    margin: auto;
     background-image: url(../../public/images/background_harry_azul_marinho\ 1.png),
     url(../../public/images/background_harry_azul_marinho\ 2.png),
     url(../../public/images/background_harry_azul_marinho\ 3.png),
     url(../../public/images/background_harry_azul_marinho\ 4.png);
-    background-position: 0px 106px, 832px 106px, bottom left, bottom right;
+    background-position: 0px 106px, 832px 106px, 0 634px, 832px 634px;
     background-size: 832px 528px, 517px 528px;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+} 
+
+.divSection_divTitle__characters {
+    margin: 28px 2.59rem 0 1rem;
 }
 
 .divSection_title__characters {
@@ -24,14 +34,47 @@
 .ulCards .container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 63px;
+}
+
+.ulCards_li {
+    padding-right: 75px;
+}
+
+.ulCards_li:nth-child(5n), .ulCards_li:nth-child(n+401) {
+    padding: 0;
 }
 
 .divImageCard {
-    width: fit-content;
-    height: 231px;
+    width: 184px;
+    height: 248px;
     border: solid 2px #A6955A;
+    background-color: #A6955A;
 }
 
 .divCharactersName {
-    width: min-content;
+    width: 184px;
+    margin: 13px auto 42px;
 }
+
+.charactersName {
+    text-align: center;
+    font-weight: initial;
+    font-size: 24px;
+    line-height: 26px;
+    color: #A6955A;
+}
+
+.modalOverlay {
+    background-color: rgba(30, 30, 30, 0.02);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
