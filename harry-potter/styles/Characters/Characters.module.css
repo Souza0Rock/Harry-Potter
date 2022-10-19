@@ -67,7 +67,7 @@
 }
 
 .modalOverlay {
-    background-color: rgba(30, 30, 30, 0.02);
+    background-color: rgb(0 0 0 / 60%);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -78,3 +78,32 @@
     justify-content: center;
 }
 
+.modalContent {
+    width: 38%;
+    height: 45.7%;
+    margin-top: 69px;
+    background-color: rgba(23, 23, 23, 1);
+    border: none;
+    border-radius: 10px;
+}
+
+.contentModal_xClose {
+    color: #A6955A;
+}
+
+.modalContent_divP {
+    margin: 0;
+}
+
+.modalContent_p__span, .modalContent_wandLi_p_span {
+color: #D9D9D9;
+}
+
+.modalContent_p, .modalContent_wandLi_p {
+    text-transform: capitalize;
+    color: #A6955A;
+}
+
+.modalContent_p__span_de {
+    text-transform: initial;
+}
