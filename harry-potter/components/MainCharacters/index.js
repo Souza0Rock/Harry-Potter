@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "react-modal";
+import Modal from "react-modal"; 
+import { ulMain } from "../../utils";
 import styles from '../../styles/Characters/Characters.module.css'
 
 Modal.setAppElement("#__next");
@@ -27,44 +28,21 @@ export default function MainCharacters (characters) {
         })
     }, [])
 
-    
-
+    useEffect(() => {
+    if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        let urlParams = undefined;
+        params.forEach((value, key) => {
+            urlParams = Object.assign({}, urlParams, {
+                [key]: value.toString
+            })
+        })
+        }
+    }, [])
 
     return (
         <main>
-            <ul className={styles.ulCards}>
-                <div className={styles.container}>
-                {resposta &&
-                    resposta.map((characters, index) => {
-                        return (
-                            <li key={index} className={styles.ulCards_li}>
-                                <div key={index}>
-                                    <div className={styles.divImageCard} onClick={() => onItemClicked(characters)}>
-                                        <img
-                                        alt={characters.name}
-                                        src={characters.image}
-                                        width="180px"
-                                        height="244px"
-                                        className={styles.imgGlobal}
-                                        />
-                                    </div>
-                                    <div
-                                        className={styles.divCharactersName}
-                                        onClick={() => onItemClicked(characters)}
-                                    >
-                                        <h3 className={styles.charactersName}>{characters.name}</h3>
-                                    </div>
-                                    {items.map((item, index) => (
-                                        <li key="item-${index}" onClick={() => onItemClicked(item)}>
-                                        {item.name}
-                                        </li>
-                                    ))}
-                                </div>
-                            </li>
-                        );
-                    })}
-                </div>
-            </ul>
+            {ulMain()}            
             <Modal isOpen={open}
                 overlayClassName={styles.modalOverlay}
                 className={styles.modalContent}
@@ -79,7 +57,7 @@ export default function MainCharacters (characters) {
                             className={styles.imgGlobal}
                             />
                         </div>
-                        <div>
+                        <div className={styles.modalTxt_div}>
                             <ul className={styles.modalContent_ul}>
                                 <li className={styles.modalContent_liP}>
                                     <p className={styles.modalContent_p}>nome: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.name}</span></p>

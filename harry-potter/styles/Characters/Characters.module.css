@@ -84,8 +84,8 @@
 }
 
 .modalContent {
-    width: 50%;
-    height: 64.7%;
+    width: 674px;
+    height: 425px;
     margin-top: 69px;
     background-color: rgba(23, 23, 23, 1);
     border: none;
@@ -106,6 +106,10 @@
 
 .modalContent_ul {
     margin: 53px 10px 0 0;
+}
+
+.modalTxt_div {
+    width: 227.52px;
 }
 
 .modalContent_liP {

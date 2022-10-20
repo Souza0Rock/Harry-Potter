@@ -40,6 +40,7 @@
 
 .button {
   width: 15em;
+  padding: 5px;
   cursor: pointer;
   background-color: #A6955A;
   border-radius: 10px;
@@ -92,7 +93,7 @@
 .divFooter_ul .container {
   display: flex;
   justify-content: space-between;
-  padding: 29px 0 68px;
+  padding: 42px 0 68px;
 }
 
 .divFooter_ul_imgLink, .divHeader_img {
