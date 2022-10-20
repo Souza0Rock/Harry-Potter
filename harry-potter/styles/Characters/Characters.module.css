@@ -47,10 +47,14 @@
 }
 
 .divImageCard {
-    width: 184px;
-    height: 248px;
-    border: solid 2px #A6955A;
+    width: 180px;
+    height: 244px;
     background-color: #A6955A;
+    cursor: pointer;
+}
+
+.imgGlobal {
+    border: solid 2px #A6955A;   
 }
 
 .divCharactersName {
@@ -64,6 +68,7 @@
     font-size: 24px;
     line-height: 26px;
     color: #A6955A;
+    cursor: pointer;
 }
 
 .modalOverlay {
@@ -79,20 +84,36 @@
 }
 
 .modalContent {
-    width: 38%;
-    height: 45.7%;
+    width: 50%;
+    height: 64.7%;
     margin-top: 69px;
     background-color: rgba(23, 23, 23, 1);
     border: none;
     border-radius: 10px;
 }
 
-.contentModal_xClose {
-    color: #A6955A;
+.modalContent_div .container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.modalContent_divP {
-    margin: 0;
+.modalImg_div {
+    width: 270px;
+    height: 349px;
+    margin: 38px 0px 38px 50px;
+    background-color: #A6955A;
+}
+
+.modalContent_ul {
+    margin: 53px 10px 0 0;
+}
+
+.modalContent_liP {
+    margin-bottom: 5px;
+}
+
+.modalContent_liP:nth-child(9){
+    margin-bottom: 0;
 }
 
 .modalContent_p__span, .modalContent_wandLi_p_span {
@@ -100,10 +121,38 @@ color: #D9D9D9;
 }
 
 .modalContent_p, .modalContent_wandLi_p {
+    font-size: 18px;
     text-transform: capitalize;
     color: #A6955A;
 }
 
 .modalContent_p__span_de {
     text-transform: initial;
+}
+
+.modalContent_wandUl {
+    margin-left: 12px;
+}
+
+.modalContent_wandLi_p {
+    font-size: 16px;
+}
+
+.modalContent_divXClose {
+    width: 26px;
+    height: 26px;
+    margin: 20px;
+    border-radius: 50%;
+    background: #A6955A;
+}
+
+.modalContent_xClose {
+    padding: 2px 7px;
+    font-weight: bold;
+    color:rgba(23, 23, 23, 1)(23, 23, 23, 1)
+}
+
+.modalContent_xClose:hover {
+    cursor: pointer;
+    color: #9C231C;
 }
