@@ -2,7 +2,7 @@ import React from "react";
 import stylesHome from '../../styles/Home/Home.module.css'
 import stylesCharacters from '../../styles/Characters/Characters.module.css'
 
-export default function Section ({textSection, home, characters}) {
+export default function Section ({home, characters, textSection}) {
 
     return (
         <section>

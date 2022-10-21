@@ -12,7 +12,7 @@ export default function Characters () {
         <div className={styles.divBody}>
             <div className={styles.containerBody}>
                 <Header logoHeader={logoHeader} />
-                <Section textSection={'personagens'} characters={characters} />
+                <Section characters={characters} textSection={'personagens'} />
                 <MainCharacters />
             </div>
         </div>

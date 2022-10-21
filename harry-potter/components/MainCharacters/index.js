@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "react-modal"; 
-import { ulMain } from "../../utils";
+import URL from "../../utils";
 import styles from '../../styles/Characters/Characters.module.css'
 
 Modal.setAppElement("#__next");
@@ -16,17 +16,25 @@ export default function MainCharacters (characters) {
         setItemSelecionado(item);
         setIsOpen(true);
     }
-
     
-    const baseURL = "https://hp-api.herokuapp.com/api/characters"
-    const [resposta, setResposta] = useState()
+    let baseURL = URL
+    const [allCharacters, setAllCharacters] = useState()
 
     useEffect(() => {
         axios.get(baseURL) .then((response) => {
-        setResposta(response.data);
-        console.log(response.data);
+        setAllCharacters(response.data);
         })
     }, [])
+
+    // const baseURLGryffindor = "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
+    // const [gryffindor, setGryffindor] = useState()
+
+    // useEffect(() => {
+    //     axios.get(baseURLGryffindor) .then((response) => {
+    //     setGryffindor(response.data)
+    //     console.log(response.data)
+    //     })
+    // }, [])
 
     useEffect(() => {
     if (typeof window !== "undefined") {
@@ -37,12 +45,45 @@ export default function MainCharacters (characters) {
                 [key]: value.toString
             })
         })
+        console.log(urlParams, 'deu certo')
         }
     }, [])
 
     return (
         <main>
-            {ulMain()}            
+            <ul className={styles.ulCards}>
+                <div className={styles.container}>
+                {allCharacters &&
+                    allCharacters.map((characters, index) => {
+                        return (
+                            <li key={index} className={styles.ulCards_li}>
+                                <div key={index}>
+                                    <div className={styles.divImageCard} onClick={() => onItemClicked(characters)}>
+                                        <img
+                                        alt={characters.name}
+                                        src={characters.image}
+                                        width="180px"
+                                        height="244px"
+                                        className={styles.imgGlobal}
+                                        />
+                                    </div>
+                                    <div
+                                        className={styles.divCharactersName}
+                                        onClick={() => onItemClicked(characters)}
+                                    >
+                                        <h3 className={styles.charactersName}>{characters.name}</h3>
+                                    </div>
+                                    {items.map((item, index) => (
+                                        <li key="item-${index}" onClick={() => onItemClicked(item)}>
+                                        {item.name}
+                                        </li>
+                                    ))}
+                                </div>
+                            </li>
+                        );
+                    })}
+                </div>
+            </ul>           
             <Modal isOpen={open}
                 overlayClassName={styles.modalOverlay}
                 className={styles.modalContent}
