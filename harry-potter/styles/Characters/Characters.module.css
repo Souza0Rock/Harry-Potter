@@ -145,7 +145,8 @@ color: #D9D9D9;
 .modalContent_divXClose {
     width: 26px;
     height: 26px;
-    margin: 20px;
+    margin: 10px 0 0 274px;
+    position: absolute;
     border-radius: 50%;
     background: #A6955A;
 }
@@ -159,4 +160,61 @@ color: #D9D9D9;
 .modalContent_xClose:hover {
     cursor: pointer;
     color: #9C231C;
+}
+
+@media (max-width: 360px) {
+    .containerBody {
+        width: 360px;
+    }
+
+    .divSection_divTitle__characters {
+        margin: auto;
+    }
+
+    .divSection_titleLine__characters {
+        margin: 20px 0;
+    }
+
+    .ulCards_li {
+        padding: 0;
+    }
+
+    .ulCards .container {
+        margin-top: 20px;
+    }
+
+    .modalContent {
+        width: 310px;
+        height: 655px;
+    }
+
+    .modalContent_div .container {
+        flex-direction: column;
+    }
+
+    .modalContent_ul {
+        margin: 0;
+    }
+
+    .modalContent_ul .container {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .modalImg_div {
+        height: 279px;
+        width: 200px;
+        position: relative;
+        bottom: -15px;
+        margin: 30px auto 0;
+    }
+
+    .imgGlobal_modal {
+        width: 200px;
+        height: 279px;
+    }
+
+    .modalTxt_div {
+        margin: 25px auto;
+    }
 }

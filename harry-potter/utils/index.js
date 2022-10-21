@@ -1,14 +1,14 @@
-export default function URL () {
+export default function ConstUrl () {
 
-    if (urlParams === 'Gryffindor') {
+    if (urlParams === 'gryffindor') {
         return (
-            "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
+            gryffindor
         )
     }
 
     else {
         return (
-            "https://hp-api.herokuapp.com/api/characters"
+            allCharacters
         )
     }
 }

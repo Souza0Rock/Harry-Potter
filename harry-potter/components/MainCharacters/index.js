@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "react-modal"; 
-import URL from "../../utils";
+import ConstUrl from "../../utils";
 import styles from '../../styles/Characters/Characters.module.css'
+import stylesMobile from '../../styles/Home/Home.module.css'
 
 Modal.setAppElement("#__next");
 
@@ -16,8 +17,9 @@ export default function MainCharacters (characters) {
         setItemSelecionado(item);
         setIsOpen(true);
     }
+
     
-    let baseURL = URL
+    const baseURL = "https://hp-api.herokuapp.com/api/characters"
     const [allCharacters, setAllCharacters] = useState()
 
     useEffect(() => {
@@ -26,15 +28,15 @@ export default function MainCharacters (characters) {
         })
     }, [])
 
-    // const baseURLGryffindor = "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
-    // const [gryffindor, setGryffindor] = useState()
+    const baseURLGryffindor = "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
+    const [gryffindor, setGryffindor] = useState()
 
-    // useEffect(() => {
-    //     axios.get(baseURLGryffindor) .then((response) => {
-    //     setGryffindor(response.data)
-    //     console.log(response.data)
-    //     })
-    // }, [])
+    useEffect(() => {
+        axios.get(baseURLGryffindor) .then((response) => {
+        setGryffindor(response.data)
+        console.log(response.data)
+        })
+    }, [])
 
     useEffect(() => {
     if (typeof window !== "undefined") {
@@ -50,7 +52,7 @@ export default function MainCharacters (characters) {
     }, [])
 
     return (
-        <main>
+        <main className={stylesMobile.main__mobile}>
             <ul className={styles.ulCards}>
                 <div className={styles.container}>
                 {allCharacters &&
@@ -95,43 +97,45 @@ export default function MainCharacters (characters) {
                             src={itemSelecionado == null? 'vla' : itemSelecionado.image}
                             width="270px"
                             height="349px" 
-                            className={styles.imgGlobal}
+                            className={styles.imgGlobal_modal}
                             />
                         </div>
                         <div className={styles.modalTxt_div}>
                             <ul className={styles.modalContent_ul}>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>nome: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.name}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>casa: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.house}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>espécie: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.species}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>data<span clasName={styles.modalContent_p__span_de}> de </span>nasc.: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.dateOfBirth}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>gênero: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.gender}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>patronus: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.patronus}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>varinha: </p>
-                                    <ul className={styles.modalContent_wandUl}>
-                                        <li><p className={styles.modalContent_wandLi_p}>- madeira: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.wood}</span></p></li>
-                                        <li><p className={styles.modalContent_wandLi_p}>- núcleo: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.core}</span></p></li>
-                                        <li><p className={styles.modalContent_wandLi_p}>- tamanho: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.length}</span></p></li>
-                                    </ul>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>ancestralidade: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.ancestry}</span></p>
-                                </li>
-                                <li className={styles.modalContent_liP}>
-                                    <p className={styles.modalContent_p}>ator: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.actor}</span></p>
-                                </li>
+                                <div className={stylesMobile.container}>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>nome: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.name}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>casa: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.house}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>espécie: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.species}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>data<span clasName={styles.modalContent_p__span_de}> de </span>nasc.: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.dateOfBirth}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>gênero: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.gender}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>patronus: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.patronus}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>varinha: </p>
+                                        <ul className={styles.modalContent_wandUl}>
+                                            <li><p className={styles.modalContent_wandLi_p}>- madeira: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.wood}</span></p></li>
+                                            <li><p className={styles.modalContent_wandLi_p}>- núcleo: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.core}</span></p></li>
+                                            <li><p className={styles.modalContent_wandLi_p}>- tamanho: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.length}</span></p></li>
+                                        </ul>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>ancestralidade: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.ancestry}</span></p>
+                                    </li>
+                                    <li className={styles.modalContent_liP}>
+                                        <p className={styles.modalContent_p}>ator: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.actor}</span></p>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                         <div className={styles.modalContent_divXClose}><p className={styles.modalContent_xClose} onClick={() => setIsOpen(false)}>X</p></div>

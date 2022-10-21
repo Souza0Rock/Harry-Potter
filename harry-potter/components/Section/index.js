@@ -5,7 +5,7 @@ import stylesCharacters from '../../styles/Characters/Characters.module.css'
 export default function Section ({home, characters, textSection}) {
 
     return (
-        <section>
+        <section  className={stylesHome.section__mobile}>
             <div className={stylesHome.divSection}>
                 <div className={stylesHome.container}>
                     <div><img alt="Hogwarts logo" src="/images/logo-hoghwarts.png" /></div>                    
