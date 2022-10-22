@@ -145,8 +145,7 @@ color: #D9D9D9;
 .modalContent_divXClose {
     width: 26px;
     height: 26px;
-    margin: 10px 0 0 274px;
-    position: absolute;
+    margin: 26px;
     border-radius: 50%;
     background: #A6955A;
 }
@@ -154,7 +153,7 @@ color: #D9D9D9;
 .modalContent_xClose {
     padding: 2px 7px;
     font-weight: bold;
-    color:rgba(23, 23, 23, 1)(23, 23, 23, 1)
+    color:rgba(23, 23, 23, 1);
 }
 
 .modalContent_xClose:hover {
@@ -186,6 +185,7 @@ color: #D9D9D9;
     .modalContent {
         width: 310px;
         height: 655px;
+        margin: 0;
     }
 
     .modalContent_div .container {
@@ -199,6 +199,10 @@ color: #D9D9D9;
     .modalContent_ul .container {
         display: flex;
         flex-flow: column wrap;
+    }
+
+    .modalContent_p {
+        font-size: 17px;
     }
 
     .modalImg_div {
@@ -216,5 +220,14 @@ color: #D9D9D9;
 
     .modalTxt_div {
         margin: 25px auto;
+    }
+
+    .modalContent_divXClose {
+        width: 26px;
+        height: 26px;
+        margin: 10px 0 0 274px;
+        position: absolute;
+        border-radius: 50%;
+        background: #A6955A;
     }
 }
