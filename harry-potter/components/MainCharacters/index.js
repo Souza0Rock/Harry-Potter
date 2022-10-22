@@ -17,37 +17,21 @@ export default function MainCharacters (characters) {
         setItemSelecionado(item);
         setIsOpen(true);
     }
-
     
     const baseURL = "https://hp-api.herokuapp.com/api/characters"
-    const [allCharacters, setAllCharacters] = useState()
+    const [charecter, setCharecter] = useState()
+    const [house, setHouse] = useState()
 
+    async function pickCharecters(house) {
+        if (house !== "undefided"){
+                axios.get(baseURL + `/house/${house}`).then((response) => setCharecter(response.data))
+        }      
+    }
     useEffect(() => {
-        axios.get(baseURL) .then((response) => {
-        setAllCharacters(response.data);
-        })
-    }, [])
-
-    const baseURLGryffindor = "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
-    const [gryffindor, setGryffindor] = useState()
-
-    useEffect(() => {
-        axios.get(baseURLGryffindor) .then((response) => {
-        setGryffindor(response.data)
-        console.log(response.data)
-        })
-    }, [])
-
-    useEffect(() => {
-    if (typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        let urlParams = undefined;
-        params.forEach((value, key) => {
-            urlParams = Object.assign({}, urlParams, {
-                [key]: value.toString
-            })
-        })
-        console.log(urlParams, 'deu certo')
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            setHouse(params.toString().replace('house=', ''))        
+            pickCharecters(house)           
         }
     }, [])
 
@@ -55,8 +39,7 @@ export default function MainCharacters (characters) {
         <main className={stylesMobile.main__mobile}>
             <ul className={styles.ulCards}>
                 <div className={styles.container}>
-                {allCharacters &&
-                    allCharacters.map((characters, index) => {
+                {charecter && charecter.map((characters, index) => {
                         return (
                             <li key={index} className={styles.ulCards_li}>
                                 <div key={index}>
