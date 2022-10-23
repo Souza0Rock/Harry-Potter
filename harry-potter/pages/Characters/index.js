@@ -14,6 +14,26 @@ export default function Characters () {
     const splitHouse = splitGlobal.split('&')[0]
     console.log(splitHouse)
 
+    if (splitHouse === 'all') {
+        document.title= 'Harry Potter - Personagens'
+    }
+
+    else if (splitHouse === 'Gryffindor') {
+        document.title= 'Harry Potter - Grifinória'
+    }
+
+    else if (splitHouse === 'Slytherin') {
+        document.title= 'Harry Potter - Sonserina'
+    }
+
+    else if (splitHouse === 'Hufflepuff') {
+        document.title= 'Harry Potter - Lufa-Lufa'
+    }
+
+    else if (splitHouse === 'Ravenclaw') {
+        document.title= 'Harry Potter - Corvinal'
+    }
+
     return (
         <div className={styles.divBody}>
             <div className={styles.containerBody}>

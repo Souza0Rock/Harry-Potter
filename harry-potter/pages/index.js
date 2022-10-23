@@ -8,14 +8,17 @@ const logoHeader = false
 const home = true
 
 export default function Home() {
-    return (
-      <div className={styles.divBody}>
-        <div className={styles.containerBody}>
-          <Header logoHeader={logoHeader} />
-          <MainHome />
-          <Section home={home} textSection={'Navegue pelas Casas'} />
-          <Footer />
-        </div>
+
+  document.title= 'Harry Potter'
+
+  return (
+    <div className={styles.divBody}>
+      <div className={styles.containerBody}>
+        <Header logoHeader={logoHeader} />
+        <MainHome />
+        <Section home={home} textSection={'Navegue pelas Casas'} />
+        <Footer />
       </div>
-    )
+    </div>
+  )
 }

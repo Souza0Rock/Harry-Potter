@@ -86,14 +86,14 @@ export default function MainCharacters (characters) {
                 <div className={styles.modalContent_div}>
                     <div className={styles.container}>                        
                         <div className={styles.modalImg_div}>
-                            {itemSelecionado == null? 'vla' : itemSelecionado.image ? <img
-                            alt={itemSelecionado == null? 'vla' : itemSelecionado.name}
-                            src={itemSelecionado == null? 'vla' : itemSelecionado.image}
+                            {itemSelecionado == null? 'vla' : itemSelecionado?.image ? <img
+                            alt={itemSelecionado == null? 'vla' : itemSelecionado?.name}
+                            src={itemSelecionado == null? 'vla' : itemSelecionado?.image}
                             width="270px"
                             height="349px" 
                             className={styles.imgGlobal_modal}
                             /> : <img
-                            alt={itemSelecionado == null? 'vla' : itemSelecionado.name}
+                            alt={itemSelecionado == null? 'vla' : itemSelecionado?.name}
                             src="/images/default.png"
                             width="230px"
                             height="309px" 
@@ -107,33 +107,42 @@ export default function MainCharacters (characters) {
                                         <p className={styles.modalContent_p}>nome: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.name}</span></p>
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>casa: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.house}</span></p>
+                                        {itemSelecionado?.house ? <p className={styles.modalContent_p}>casa: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.house}</span></p> : 
+                                        <p className={styles.modalContent_p}>casa: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>espécie: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.species}</span></p>
+                                        {itemSelecionado?.species ? <p className={styles.modalContent_p}>espécie: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.species}</span></p> :
+                                        <p className={styles.modalContent_p}>espécie: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>data<span clasName={styles.modalContent_p__span_de}> de </span>nasc.: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.dateOfBirth}</span></p>
+                                        {itemSelecionado?.dateOfBirth ?<p className={styles.modalContent_p}>data<span clasName={styles.modalContent_p__span_de}> de </span>nasc.: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.dateOfBirth}</span></p> :
+                                        <p className={styles.modalContent_p}>data<span clasName={styles.modalContent_p__span_de}> de </span>nasc.: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>gênero: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.gender}</span></p>
+                                        {itemSelecionado?.gender ? <p className={styles.modalContent_p}>gênero: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.gender}</span></p> :
+                                        <p className={styles.modalContent_p}>gênero: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>patronus: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.patronus}</span></p>
+                                        {itemSelecionado?.patronus ? <p className={styles.modalContent_p}>patronus: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.patronus}</span></p> :
+                                        <p className={styles.modalContent_p}>patronus: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
                                         <p className={styles.modalContent_p}>varinha: </p>
                                         <ul className={styles.modalContent_wandUl}>
-                                            <li><p className={styles.modalContent_wandLi_p}>- madeira: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.wood}</span></p></li>
-                                            <li><p className={styles.modalContent_wandLi_p}>- núcleo: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.core}</span></p></li>
-                                            <li><p className={styles.modalContent_wandLi_p}>- tamanho: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.length}</span></p></li>
+                                            {itemSelecionado?.wand?.wood ? <li><p className={styles.modalContent_wandLi_p}>- madeira: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.wood}</span></p></li> :
+                                            <li><p className={styles.modalContent_wandLi_p}>- madeira: <span className={styles.modalContent_wandLi_p_span}>info desconhecida</span></p></li>}
+                                            {itemSelecionado?.wand?.core ? <li><p className={styles.modalContent_wandLi_p}>- núcleo: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.core}</span></p></li> :
+                                            <li><p className={styles.modalContent_wandLi_p}>- núcleo: <span className={styles.modalContent_wandLi_p_span}>info desconhecida</span></p></li>}
+                                            {itemSelecionado?.wand?.length ? <li><p className={styles.modalContent_wandLi_p}>- tamanho: <span className={styles.modalContent_wandLi_p_span}>{itemSelecionado == null? 'vla' : itemSelecionado?.wand?.length}</span></p></li> :
+                                            <li><p className={styles.modalContent_wandLi_p}>- tamanho: <span className={styles.modalContent_wandLi_p_span}>info desconhecida</span></p></li>}
                                         </ul>
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>ancestralidade: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.ancestry}</span></p>
+                                        {itemSelecionado?.ancestry ? <p className={styles.modalContent_p}>ancestralidade: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.ancestry}</span></p> : <p className={styles.modalContent_p}>ancestralidade: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                     <li className={styles.modalContent_liP}>
-                                        <p className={styles.modalContent_p}>ator: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.actor}</span></p>
+                                        {itemSelecionado?.actor ? <p className={styles.modalContent_p}>ator: <span className={styles.modalContent_p__span}>{itemSelecionado == null? 'vla' : itemSelecionado?.actor}</span></p> :
+                                        <p className={styles.modalContent_p}>ator: <span className={styles.modalContent_p__span}>info desconhecida</span></p>}
                                     </li>
                                 </div>
                             </ul>

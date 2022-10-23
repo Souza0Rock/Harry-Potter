@@ -29,6 +29,7 @@
 
 .divMain {
   width: fit-content;
+  height: 400px;
   margin-left: 1rem;
   padding: 6rem 0 2rem;
 }
@@ -55,6 +56,13 @@
   border-right: 2px solid #767676;
   border-bottom: 2px solid #767676;
   border-left: 2px solid #212121;
+}
+
+.button:hover {
+  width: 16rem;
+  height: 55px;
+  box-shadow: 0px 0px 14px 1px #A6955A;
+  transition: 1s;
 }
 
 .buttonP {
@@ -107,18 +115,22 @@
 
 .divFooter_ul_li:nth-child(1):hover {
   box-shadow: 0px 0px 5px 5px #9C211C;
+  transition: 0.3s;
 }
 
 .divFooter_ul_li:nth-child(2):hover {
   box-shadow: 0px 0px 5px 5px #0B6833;
+  transition: 0.3s;
 }
 
 .divFooter_ul_li:nth-child(3):hover {
   box-shadow: 0px 0px 5px 5px #BF9636;
+  transition: 0.3s;
 }
 
 .divFooter_ul_li:nth-child(4):hover {
   box-shadow: 0px 0px 5px 5px #316eca;
+  transition: 0.3s;
 }
 
 @media (max-width: 360px) {
