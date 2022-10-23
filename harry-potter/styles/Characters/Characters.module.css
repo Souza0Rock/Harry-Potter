@@ -109,6 +109,10 @@
     background-color: #A6955A;
 }
 
+.imgDefault_modal {
+    margin: 20px;
+}
+
 .modalContent_ul {
     margin: 53px 10px 0 0;
 }

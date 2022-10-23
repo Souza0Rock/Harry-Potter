@@ -13,7 +13,7 @@ export default function Home() {
         <div className={styles.containerBody}>
           <Header logoHeader={logoHeader} />
           <MainHome />
-          <Section textSection={'Navegue pelas Casas'} home={home} />
+          <Section home={home} textSection={'Navegue pelas Casas'} />
           <Footer />
         </div>
       </div>

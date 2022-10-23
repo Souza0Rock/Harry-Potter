@@ -18,10 +18,8 @@ export default function MainCharacters (characters) {
     }
     
     const baseURL = "https://hp-api.herokuapp.com/api/characters"
-    const [charecter, setCharacters] = useState()
+    const [character, setCharacters] = useState()
     
-
-
     function pickCharacters(house) {
         if (house != undefined){
                 if (house == 'all'){
@@ -38,8 +36,8 @@ export default function MainCharacters (characters) {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const params = new URLSearchParams(window.location.search);
-            setHouse(params.toString().replace('house=', ''))     
-            pickCharacters(house)                      
+            setHouse(params.toString().replace('house=', ''))
+            pickCharacters(house)                   
         }       
     }, [house])
 
@@ -47,17 +45,23 @@ export default function MainCharacters (characters) {
         <main className={stylesMobile.main__mobile}>
             <ul className={styles.ulCards}>
                 <div className={styles.container}>
-                {charecter && charecter.map((characters, index) => {
+                {character && character.map((characters, index) => {
                         return (
                             <li key={index} className={styles.ulCards_li}>                                
                                 <div className={styles.divImageCard} onClick={() => onItemClicked(characters)} key={index}>
-                                    <img
+                                    {characters.image ? <img
                                     alt={characters.name}
                                     src={characters.image}
                                     width="180px"
                                     height="244px"
                                     className={styles.imgGlobal}
-                                    />
+                                    /> : <img
+                                    alt={characters.name}
+                                    src="/images/default.png"
+                                    width="180px"
+                                    height="244px"
+                                    className={styles.imgGlobal}
+                                    />}
                                 </div>
                                 <div
                                     className={styles.divCharactersName}
@@ -81,13 +85,20 @@ export default function MainCharacters (characters) {
             >
                 <div className={styles.modalContent_div}>
                     <div className={styles.container}>                        
-                        <div className={styles.modalImg_div}><img
+                        <div className={styles.modalImg_div}>
+                            {itemSelecionado == null? 'vla' : itemSelecionado.image ? <img
                             alt={itemSelecionado == null? 'vla' : itemSelecionado.name}
                             src={itemSelecionado == null? 'vla' : itemSelecionado.image}
                             width="270px"
                             height="349px" 
                             className={styles.imgGlobal_modal}
-                            />
+                            /> : <img
+                            alt={itemSelecionado == null? 'vla' : itemSelecionado.name}
+                            src="/images/default.png"
+                            width="230px"
+                            height="309px" 
+                            className={styles.imgDefault_modal}
+                            />}
                         </div>
                         <div className={styles.modalTxt_div}>
                             <ul className={styles.modalContent_ul}>
