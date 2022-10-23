@@ -101,6 +101,26 @@
   border: 2px solid #A6955A;
 }
 
+.divFooter_ul_li {
+  height: 291px;
+}
+
+.divFooter_ul_li:nth-child(1):hover {
+  box-shadow: 0px 0px 5px 5px #9C211C;
+}
+
+.divFooter_ul_li:nth-child(2):hover {
+  box-shadow: 0px 0px 5px 5px #0B6833;
+}
+
+.divFooter_ul_li:nth-child(3):hover {
+  box-shadow: 0px 0px 5px 5px #BF9636;
+}
+
+.divFooter_ul_li:nth-child(4):hover {
+  box-shadow: 0px 0px 5px 5px #316eca;
+}
+
 @media (max-width: 360px) {
   .containerBody {
     width: 360px;

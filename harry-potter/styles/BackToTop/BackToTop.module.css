@@ -13,7 +13,8 @@
 }
 
 .btn:hover {
-    box-shadow: inset 0px 0px 14px 1px rgb(34 75 125);
+    box-shadow: inset 0px 0px 14px 1px rgb(34 75 125), 0px 0px 14px 1px #A6955A;
+    transition: 0.5s;
 }
 
 .arrow {

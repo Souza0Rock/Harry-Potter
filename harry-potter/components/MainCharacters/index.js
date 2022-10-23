@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "react-modal"; 
-import ConstUrl from "../../utils";
 import styles from '../../styles/Characters/Characters.module.css'
 import stylesMobile from '../../styles/Home/Home.module.css'
 
@@ -19,21 +18,30 @@ export default function MainCharacters (characters) {
     }
     
     const baseURL = "https://hp-api.herokuapp.com/api/characters"
-    const [charecter, setCharecter] = useState()
+    const [charecter, setCharacters] = useState()
+    
+
+
+    function pickCharacters(house) {
+        if (house != undefined){
+                if (house == 'all'){
+                    axios.get(baseURL).then((response) => setCharacters(response.data))
+                }
+                else {
+                    axios.get(baseURL + `/house/${house}`).then((response) => setCharacters(response.data))
+                }
+        }
+    }
+
     const [house, setHouse] = useState()
 
-    async function pickCharecters(house) {
-        if (house !== "undefided"){
-                axios.get(baseURL + `/house/${house}`).then((response) => setCharecter(response.data))
-        }      
-    }
     useEffect(() => {
         if (typeof window !== "undefined") {
             const params = new URLSearchParams(window.location.search);
-            setHouse(params.toString().replace('house=', ''))        
-            pickCharecters(house)           
-        }
-    }, [])
+            setHouse(params.toString().replace('house=', ''))     
+            pickCharacters(house)                      
+        }       
+    }, [house])
 
     return (
         <main className={stylesMobile.main__mobile}>
@@ -41,29 +49,27 @@ export default function MainCharacters (characters) {
                 <div className={styles.container}>
                 {charecter && charecter.map((characters, index) => {
                         return (
-                            <li key={index} className={styles.ulCards_li}>
-                                <div key={index}>
-                                    <div className={styles.divImageCard} onClick={() => onItemClicked(characters)}>
-                                        <img
-                                        alt={characters.name}
-                                        src={characters.image}
-                                        width="180px"
-                                        height="244px"
-                                        className={styles.imgGlobal}
-                                        />
-                                    </div>
-                                    <div
-                                        className={styles.divCharactersName}
-                                        onClick={() => onItemClicked(characters)}
-                                    >
-                                        <h3 className={styles.charactersName}>{characters.name}</h3>
-                                    </div>
-                                    {items.map((item, index) => (
-                                        <li key="item-${index}" onClick={() => onItemClicked(item)}>
-                                        {item.name}
-                                        </li>
-                                    ))}
+                            <li key={index} className={styles.ulCards_li}>                                
+                                <div className={styles.divImageCard} onClick={() => onItemClicked(characters)} key={index}>
+                                    <img
+                                    alt={characters.name}
+                                    src={characters.image}
+                                    width="180px"
+                                    height="244px"
+                                    className={styles.imgGlobal}
+                                    />
                                 </div>
+                                <div
+                                    className={styles.divCharactersName}
+                                    onClick={() => onItemClicked(characters)}
+                                >
+                                    <h3 className={styles.charactersName}>{characters.name}</h3>
+                                </div>
+                                {items.map((item, index) => (
+                                    <li key="item-${index}" onClick={() => onItemClicked(item)}>
+                                    {item.name}
+                                    </li>
+                                ))}
                             </li>
                         );
                     })}

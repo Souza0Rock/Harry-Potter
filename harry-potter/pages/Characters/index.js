@@ -8,12 +8,15 @@ export default function Characters () {
 
     const logoHeader = true
     const characters = true
+    const houseAll = true
+    const houseGryffindor = false
 
     return (
         <div className={styles.divBody}>
             <div className={styles.containerBody}>
                 <Header logoHeader={logoHeader} />
-                <Section characters={characters} textSection={'personagens'} />
+                {houseAll && <Section characters={characters} textSection={'personagens'}/>}
+                {houseGryffindor && <Section characters={characters} textSection={'lufa-lufa'}/>}
                 <MainCharacters />
                 <BackToTop />
             </div>

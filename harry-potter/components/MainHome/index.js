@@ -11,7 +11,7 @@ export default function MainHome () {
                     <img alt="logo Harry Potter" src='/images/logo-home.png' className={styles.imgMainHome__mobile} />
                 </article>              
                 <div className={styles.divButton}>
-                    <button type="button" onClick={() => Router.push('/Characters')} className={styles.button}><p className={styles.buttonP}>veja todos<br />os personagens</p></button>
+                    <button type="button" onClick={() => Router.push('/Characters?house=all')} className={styles.button}><p className={styles.buttonP}>veja todos<br />os personagens</p></button>
                 </div>
             </div>
         </main>
