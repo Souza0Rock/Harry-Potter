@@ -12,7 +12,6 @@ export default function Characters () {
     const url = window.location.href
     const splitGlobal = url.split('house=')[1]
     const splitHouse = splitGlobal.split('&')[0]
-    console.log(splitHouse)
 
     if (splitHouse === 'all') {
         document.title= 'Harry Potter - Personagens'

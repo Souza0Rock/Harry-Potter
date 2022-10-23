@@ -9,7 +9,9 @@ const home = true
 
 export default function Home() {
 
-  document.title= 'Harry Potter'
+  if (typeof window !== 'undefined') {
+    document.title= 'Harry Potter' 
+  }
 
   return (
     <div className={styles.divBody}>

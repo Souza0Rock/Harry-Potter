@@ -24,3 +24,10 @@
     display: inline-block;
     transform: rotate(-135deg);
 }
+
+@media (max-width: 360px) {
+    .btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}

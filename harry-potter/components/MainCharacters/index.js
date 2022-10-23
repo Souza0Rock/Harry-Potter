@@ -95,8 +95,8 @@ export default function MainCharacters (characters) {
                             /> : <img
                             alt={itemSelecionado == null? 'vla' : itemSelecionado?.name}
                             src="/images/default.png"
-                            width="230px"
-                            height="309px" 
+                            width="190px"
+                            height="269px" 
                             className={styles.imgDefault_modal}
                             />}
                         </div>
