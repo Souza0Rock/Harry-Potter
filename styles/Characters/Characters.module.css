@@ -62,6 +62,10 @@
     border: solid 2px #A6955A;   
 }
 
+.imgDefault {
+    margin: 20px;
+}
+
 .divCharactersName {
     width: 184px;
     margin: 13px auto 42px;
@@ -110,7 +114,7 @@
 }
 
 .imgDefault_modal {
-    margin: 25px;
+    margin: 60px;
 }
 
 .modalContent_ul {
@@ -220,6 +224,10 @@ color: #D9D9D9;
         position: relative;
         bottom: -15px;
         margin: 30px auto 0;
+    }
+
+    .imgDefault_modal {
+        margin: 25px;
     }
 
     .imgGlobal_modal {

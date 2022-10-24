@@ -58,9 +58,9 @@ export default function MainCharacters (characters) {
                                     /> : <img
                                     alt={characters.name}
                                     src="/images/default.png"
-                                    width="180px"
-                                    height="244px"
-                                    className={styles.imgGlobal}
+                                    width="140px"
+                                    height="204px"
+                                    className={styles.imgDefault}
                                     />}
                                 </div>
                                 <div

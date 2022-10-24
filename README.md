@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+## Note
+
+If you get the error "ReferenceError: the window is not defined", type in the url "http://localhost:3000" to return to the first page.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
